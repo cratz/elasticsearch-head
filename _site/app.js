@@ -1300,9 +1300,6 @@
 		request: function( params ) {
 			return $.ajax( $.extend({
 				url: this.base_uri + params.path,
-        headers: {
-          "Content-Type": "application/json"
-        },
 				contentType: "application/json",
 				dataType: "json",
 				error: function(xhr, type, message) {
@@ -1310,7 +1307,7 @@
 						console.log({ "XHR Error": type, "message": message });
 					}
 				}
-			},  JSON.stringfy(params)) );
+			}, params) );
 		},
 		"get": function(path, success, error) { return this.request( { type: "GET", path: path, success: success, error: error } ); },
 		"post": function(path, data, success, error) { return this.request( { type: "POST", path: path, data: data, success: success, error: error } ); },
