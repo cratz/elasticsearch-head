@@ -1301,6 +1301,9 @@
 			return $.ajax( $.extend({
 				url: this.base_uri + params.path,
 				contentType: "application/json",
+                               headers: {
+                                 "Content-Type": "application/json"
+                               },
 				dataType: "json",
 				error: function(xhr, type, message) {
 					if("console" in window) {
